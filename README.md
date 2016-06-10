@@ -13,9 +13,9 @@ $ virtualenv venv
 ```
 $ source venv/bin/activate
 ```
-3. Install project dependencies
+3. Install package
 ```
-$ pip freeze > requirements.txt
+$ pip install Flask-ResponseFactory
 ```
 
 ## Usage

@@ -4,7 +4,7 @@
 
 from unittest import TestCase, main
 
-from flask_responsefactory import status
+from flask_responseext import status
 
 
 class StatusTestCase(TestCase):

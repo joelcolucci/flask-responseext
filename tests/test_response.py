@@ -5,7 +5,7 @@ from unittest import TestCase, main
 
 from flask import Response as FlaskResponse
 
-from flask_responsefactory import Response
+from flask_responseext import Response
 
 
 class ResponseTestCase(TestCase):

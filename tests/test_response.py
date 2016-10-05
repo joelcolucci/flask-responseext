@@ -15,6 +15,12 @@ class ResponseTestCase(TestCase):
     def tearDown(self):
         pass
 
+    def test_is_subclass_of_flask_response(self):
+        """Test that build method returns flask response object"""
+        response = Response()
+
+        self.assertIsInstance(response, FlaskResponse)
+
 
 if __name__ == '__main__':
     main()

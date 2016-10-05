@@ -22,5 +22,21 @@ class ResponseTestCase(TestCase):
         self.assertIsInstance(response, FlaskResponse)
 
 
+    def test_set_status_method_success(self):
+        """Test method sets Response status"""
+        response = Response()
+
+        response.set_status(404)
+
+        self.assertEqual(response.status_code, 404)
+
+    def test_set_status_returns_self(self):
+        response = Response()
+
+        return_val = response.set_status(404)
+
+        self.assertIsInstance(return_val, Response)
+
+
 if __name__ == '__main__':
     main()

@@ -21,3 +21,11 @@ class Response(FlaskResponse):
         self.status_code = status_code
 
         return self
+
+    def set_headers(self, headers):
+        """Set dict of headers on Response object"""
+        for key, val in headers.iteritems():
+            # See https://github.com/pallets/flask/issues/287
+            self.headers.add(key, val)
+
+        return self

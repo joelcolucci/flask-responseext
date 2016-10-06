@@ -8,13 +8,17 @@
 import json
 
 from flask import Response as FlaskResponse
+from flask import json as flask_json
 
 
 class Response(FlaskResponse):
     """Flask Response subclass providing ability to chain
     setter methods"""
+    
+    JSON_MIMETYPE = 'application/json'
 
     def __init__(self, rv=None, **kwargs):
+        self.ext_paylod = rv
         FlaskResponse.__init__(self, rv, **kwargs)
 
     def set_status(self, status_code):
@@ -28,4 +32,14 @@ class Response(FlaskResponse):
             # See https://github.com/pallets/flask/issues/287
             self.headers.add(key, val)
 
+        return self
+
+    def to_json(self):
+        """Return serialize ready dictionary"""
+        indent = None
+        separators = (',', ':')
+
+        self.response = flask_json.dumps(self.ext_paylod, indent=indent, separators=separators)
+        self.mimetype = self.JSON_MIMETYPE
+        
         return self

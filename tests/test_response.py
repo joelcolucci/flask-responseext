@@ -1,6 +1,7 @@
 """Contains unit tests for Response package response module.
 """
 
+
 from unittest import TestCase, main
 
 from flask import Response as FlaskResponse
@@ -57,7 +58,21 @@ class ResponseTestCase(TestCase):
         self.assertIsInstance(return_val, Response)
 
     def test_to_json_success(self):
-        pass
+        """Test method returns serialize ready dict"""
+        response = Response({"test": "me"})
+
+        json_response = response.to_json()
+
+        self.assertIsInstance(json_response, Response)
+
+    def test_to_json_mimetype_set(self):
+        """Test method response has correct mimetype"""
+        response = Response({"test": "me"})
+
+        json_response = response.to_json()
+
+        self.assertTrue(json_response.mimetype, 'application/json')
+
 
 if __name__ == '__main__':
     main()

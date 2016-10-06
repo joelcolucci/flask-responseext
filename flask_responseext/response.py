@@ -39,7 +39,7 @@ class Response(FlaskResponse):
         indent = None
         separators = (',', ':')
 
-        self.response = flask_json.dumps(self.ext_paylod, indent=indent, separators=separators)
+        self.data = flask_json.dumps(self.ext_paylod, indent=indent, separators=separators)
         self.mimetype = self.JSON_MIMETYPE
         
         return self

@@ -25,3 +25,12 @@ def get_json():
     }
 
     return ResponseExt(payload).to_json()
+
+
+@app.route('/headers')
+def get_headers():
+    headers = {
+        'X-Test-Header': 'header value'
+    }
+
+    return ResponseExt().set_headers(headers)

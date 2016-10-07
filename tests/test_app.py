@@ -49,6 +49,15 @@ class AppTestCase(unittest.TestCase):
         except ValueError:
             self.fail('Error: No JSON object could be decoded')
 
+    def test_headers(self):
+        """Test response headers contain expected"""
+        response = self.app.get('/headers')
+
+        header_val = response.headers.get('X-Test-Header')
+        expected_val = 'header value'
+
+        self.assertEqual(header_val, expected_val)
+
 
 if __name__ == '__main__':
     unittest.main()

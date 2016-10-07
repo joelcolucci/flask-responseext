@@ -1,22 +1,16 @@
-"""
-Flask-ResponseFactory
--------------
-
-Create Flask response objects in a declarative way.
-"""
 from setuptools import setup
 
 
 setup(
-    name='Flask-ResponseFactory',
-    version='0.1',
-    url='https://github.com/joelcolucci/flask-responsefactory',
+    name='Flask-ResponseExt',
+    version='0.2.0',
+    url='https://github.com/joelcolucci/flask-responseext',
     license='MIT',
     author='Joel Colucci',
     author_email='joelcolucci@gmail.com',
-    description='Create Flask response objects in a declarative way',
+    description='An extension of the Flask Response class.',
     long_description=__doc__,
-    packages=['flask_responsefactory'],
+    packages=['flask_responseext'],
     zip_safe=False,
     include_package_data=True,
     platforms='any',
